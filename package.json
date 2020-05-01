@@ -4,7 +4,7 @@
   "description": "Easy to use flight tracking API for Node.js using aviationstack as the source.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
     "axios": "^0.19.2"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "mocha": "^7.1.2"
   }
 }
