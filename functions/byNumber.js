@@ -1,4 +1,4 @@
-const axios = require('axios');
+const axios = require('axios').default;
 
 async function byNumber(API_TOKEN, FLIGHT_NUMBER) {
   //Parameters for the axios request
@@ -11,6 +11,7 @@ async function byNumber(API_TOKEN, FLIGHT_NUMBER) {
   axios.get('http://api.aviationstack.com/v1/flights', {params})
   .then(response => {
     // handle success
+    console.log(response);
     const apiResponse = response.data;
     console.log(apiResponse);
     apiResponse['data'].forEach(flight => {
@@ -22,13 +23,18 @@ async function byNumber(API_TOKEN, FLIGHT_NUMBER) {
     });
   })
   .catch(error => {
-    // handle error
-    console.log(error);
-    throw error;
+    if (error.response) {
+      // The request was made and the server responded with a
+      // status code that falls out of the range of 2xx
+      console.log(error.response.status);
+      // return Promise.reject(new Error(error.response.status))
+    }
   })
   .finally(function () {
     // always executed
     console.log(`Done.`)
   });
+    return Promise.reject(new Error('Error'))
 }
+
 module.exports = byNumber;
