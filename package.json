@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/bbialke/flight-data/issues"
   },
-  "homepage": "https://github.com/bbialke/flight-data#readme"
+  "homepage": "https://github.com/bbialke/flight-data#readme",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
 }
