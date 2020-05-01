@@ -25,5 +25,8 @@
   "homepage": "https://github.com/bbialke/flight-data#readme",
   "dependencies": {
     "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "mocha": "^7.1.2"
   }
 }
