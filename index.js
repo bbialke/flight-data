@@ -1,3 +1,3 @@
 module.exports = {
-  byNumber: require('./functions/byNumber')
+  flights: require('./functions/flights')
 };

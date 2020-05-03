@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/bbialke/flight-data#readme",
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "moment": "^2.25.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",

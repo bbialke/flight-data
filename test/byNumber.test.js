@@ -1,6 +1,6 @@
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
-const byNumber = require('../functions/byNumber');
+const byNumber = require('../functions/flights');
 const assert = require('assert');
 const apiToken = require('../config.json').apiToken;
 
