@@ -11,7 +11,6 @@ async function flights({
   const optionQuery = formatOptions(options);
   try {
     const data = [];
-    console.log(`Fetching ${URL} with token ${API_TOKEN} and options ${optionQuery}`);
     data.push(fetchData(URL, API_TOKEN, optionQuery));
     const fetchedData = await Promise.all(data);
     return fetchedData;
