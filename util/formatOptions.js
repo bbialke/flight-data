@@ -20,6 +20,12 @@ function checkCorrectOptions(options) {
   if (limit !== undefined && (Number(limit) < 1 || Number(limit) > 100)) {
     throw new Error(`limit value should be between 1-100 ${VISIT}`);
   }
+  if (dep_icao !== undefined && (dep_icao.length > 4)) {
+    throw new Error(`dep_icao code should be 4 digits long. ${VISIT}`);
+  }
+  if (arr_icao !== undefined && (arr_icao.length > 4)) {
+    throw new Error(`arr_icao code should be 4 digits long. ${VISIT}`);
+  }
 }
 
 function formatOptions(options) {
