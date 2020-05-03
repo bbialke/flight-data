@@ -1,6 +1,15 @@
 const fetchData = require('../util/fetchData');
 const formatOptions = require('../util/formatOptions');
 
+function mergeData(fetchedData) {
+  const mergedData = { count: 0, data: [] };
+  fetchedData.forEach((dataObject) => {
+    mergedData.count += dataObject.pagination['count'];
+    mergedData.data = mergedData.data.concat(dataObject.data);
+  });
+  return mergedData;
+}
+
 async function flights({
   API_TOKEN, options
 }) {
@@ -13,7 +22,7 @@ async function flights({
     const data = [];
     data.push(fetchData(URL, API_TOKEN, optionQuery));
     const fetchedData = await Promise.all(data);
-    return fetchedData;
+    return mergeData(fetchedData);
   } catch (error) {
     throw error;
   }
