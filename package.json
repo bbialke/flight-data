@@ -1,6 +1,6 @@
 {
   "name": "flight-data",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Easy to use flight tracking API for Node.js using aviationstack as the source.",
   "main": "index.js",
   "scripts": {
@@ -13,9 +13,11 @@
   "keywords": [
     "flight",
     "tracking",
+    "realtime",
     "node",
     "status",
-    "flight-data"
+    "flight-data",
+    "aviationstack"
   ],
   "author": "Bradley Bialke",
   "license": "MIT",
