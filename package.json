@@ -1,6 +1,6 @@
 {
   "name": "flight-data",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easy to use flight tracking API for Node.js using aviationstack as the source.",
   "main": "index.js",
   "scripts": {
