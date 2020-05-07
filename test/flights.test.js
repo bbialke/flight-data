@@ -7,12 +7,18 @@ const apiToken = require('../config.json').apiToken;
 chai.use(chaiAsPromised);
 const { expect } = chai;
 
-describe('testing errors in parameters', () => {
+describe('testing errors in parameters- flight lookup', () => {
   it('should be rejected with error because API_TOKEN was not supplied', () => {
     return expect(flights({API_TOKEN: '', options: {limit: 1}})).to.be.rejectedWith(Error);
   });
   it('should be rejected with error because API_TOKEN is invalid', () => {
     return expect(flights({API_TOKEN: 'thisisntvalid', options: {limit: 1}})).to.be.rejectedWith(Error);
+  });
+  it('should be rejected with error because IATA_CODE is > 3 characters', () => {
+    return expect(flights({API_TOKEN: apiToken, options: {limit: 1, arr_iata: 'SEAXXX'}})).to.be.rejectedWith(Error);
+  });
+  it('should be rejected with error because ICAO_CODE is > 4 characters', () => {
+    return expect(flights({API_TOKEN: apiToken, options: {limit: 1, arr_icao: 'SEAXXX'}})).to.be.rejectedWith(Error);
   });
   it('should be rejected with error because FLIGHT_DATE is in an incorrect format', () => {
     return expect(flights({API_TOKEN: apiToken, options: {limit: 1, flight_date: '05-25-2020'}})).to.be.rejectedWith(Error);
