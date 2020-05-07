@@ -1,8 +1,9 @@
 # flight-data
 
-Flight-data is an easy to implement flight tracking API for Node.js that uses data from [aviationstack](https://aviationstack.com/) to quickly get data on any flight- past, present, or future.
+Flight-data is an easy to implement flight tracking API for Node.js that uses data from [aviationstack](https://aviationstack.com/) to quickly get data on any flight- past, present, or future. But it doesn't stop at flights. Use the airports feature to quickly get highly detailed information on any airport.
 
 ## Features
+#### Flights
 
 - Real time flight lookup (multiple flights at a time)
 - Historical flight data
@@ -10,6 +11,10 @@ Flight-data is an easy to implement flight tracking API for Node.js that uses da
 - Detailed departure and arrival information (including gate numbers, runways, and baggage claim areas)
 - Real-time flight data, including current latitude/longitude, heading, and elevation (only available on certain flights)
 - Full support for both IATA and ICAO codes
+#### Airports
+- Airport lookup (multiple lookups at a time)
+- Lookup by airport-specific codes or by country/city
+- Returns exact latitude/longitude position, timezone, and even airport contact information (available on certain airports)
 
 ## Installing
 
@@ -35,6 +40,24 @@ flightdata.flights(
     limit: 1,
     flight_number: '2102',
     arr_iata: 'SEA'
+  }
+})
+.then(response => {
+    ...
+  })
+.catch(error => {
+    ...
+});
+```
+### Airport lookup
+```js
+// Get full airport information for Seattle-Tacoma International (SEA)
+flightdata.airports(
+{
+  API_TOKEN: 'YOUR API TOKEN',
+  options: {
+    limit: 1,
+    icao_code: 'KSEA'
   }
 })
 .then(response => {
@@ -85,8 +108,8 @@ flightdata.flights(
     ...
 });
 ```
-#### A couple notes for dealing with results:
-The module returns a JSON array with this structure:
+#### A couple notes for dealing with flight lookup results:
+The flight lookup module returns a JSON array with this structure:
 ```js
 {
   count: 1,
@@ -106,6 +129,30 @@ The module returns a JSON array with this structure:
 ```
 This format of return means that to access the flight data, you'll need to use `response.data` instead of just using `response`. You can access the count of responses returned by using `response.count`.  
 The information returned in some areas of the `data` section is contained in other arrays. To access this information, use `response.data.SECTION['ELEMENT']`. For example, to get the departure gate, use `response.data.departure['gate']`
+#### Airport lookup results structure
+The airport lookup module similarly returns a JSON array, but getting results from the array is a slightly different process:
+```js
+{
+  count: 1,
+  data: [
+    {
+      gmt: '-8',
+      iata_code: 'SEA',
+      city_iata_code: 'SEA',
+      icao_code: 'KSEA',
+      country_iso2: 'US',
+      geoname_id: '5809876',
+      latitude: '47.44384',
+      longitude: '-122.301735',
+      airport_name: 'Seattle-Tacoma International',
+      country_name: 'United States',
+      phone_number: '206-787-5388',
+      timezone: 'America/Los_Angeles'
+    }
+  ]
+}
+```
+Results can be accessed from this array through `response.data[INDEX].ELEMENT`. For example, to get the airport name from this result, use `response.data[0].airport_name`.
 ## Contributing
 #### Want to contribute? That's great!  
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
