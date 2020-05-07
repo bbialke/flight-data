@@ -1,5 +1,5 @@
 const fetchData = require('../util/fetchData');
-const formatOptions = require('../util/formatOptions');
+const formatOptions = require('../util/formatOptionsFlights');
 
 function mergeData(fetchedData) {
   const mergedData = { count: 0, data: [] };
