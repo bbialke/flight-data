@@ -14,6 +14,9 @@ describe('testing errors in parameters', () => {
   it('should be rejected with error because API_TOKEN is invalid', () => {
     return expect(flights({API_TOKEN: 'thisisntvalid', options: {limit: 1}})).to.be.rejectedWith(Error);
   });
+  it('should be rejected with error because no options are specified', () => {
+    return expect(flights({API_TOKEN: apiToken})).to.be.rejectedWith(Error);
+  });
   it('should be rejected with error because FLIGHT_DATE is in an incorrect format', () => {
     return expect(flights({API_TOKEN: apiToken, options: {limit: 1, flight_date: '05-25-2020'}})).to.be.rejectedWith(Error);
   });
