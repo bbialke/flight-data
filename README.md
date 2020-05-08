@@ -1,5 +1,6 @@
 # flight-data
 [![Build Status](https://travis-ci.org/bbialke/flight-data.svg?branch=master)](https://travis-ci.org/bbialke/flight-data)
+
 Flight-data is an easy to implement flight tracking API for Node.js that uses data from [aviationstack](https://aviationstack.com/) to quickly get data on any flight- past, present, or future. But it doesn't stop at flights. Use the airports feature to quickly get highly detailed information on any airport.
 
 ## Features
