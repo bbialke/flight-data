@@ -1,5 +1,5 @@
 const fetchData = require('../util/fetchData');
-const formatOptions = require('../util/formatOptionsFlights');
+const formatOptions = require('../util/formatOptionsAirports');
 
 function mergeData(fetchedData) {
   const mergedData = { count: 0, data: [] };
@@ -13,7 +13,7 @@ function mergeData(fetchedData) {
 async function flights({
   API_TOKEN, options
 }) {
-  const URL = 'http://api.aviationstack.com/v1/flights';
+  const URL = 'http://api.aviationstack.com/v1/airports';
   if (API_TOKEN === undefined) {
     throw new Error('No API_TOKEN provided, add your API_TOKEN from http://aviationstack.com/ as an argument');
   }
