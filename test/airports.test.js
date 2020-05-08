@@ -2,7 +2,8 @@ const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
 const airports = require('../functions/airports');
 const assert = require('assert');
-const apiToken = require('../config.json').apiToken;
+require('dotenv').config();
+const apiToken = process.env.API_TOKEN;
 
 chai.use(chaiAsPromised);
 const { expect } = chai;
