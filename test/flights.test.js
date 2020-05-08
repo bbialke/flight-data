@@ -20,6 +20,9 @@ describe('testing errors in parameters- flight lookup', () => {
   it('should be rejected with error because ICAO_CODE is > 4 characters', () => {
     return expect(flights({API_TOKEN: apiToken, options: {limit: 1, arr_icao: 'SEAXXX'}})).to.be.rejectedWith(Error);
   });
+  it('should be rejected with error because no options are specified', () => {
+    return expect(flights({API_TOKEN: apiToken})).to.be.rejectedWith(Error);
+  });
   it('should be rejected with error because FLIGHT_DATE is in an incorrect format', () => {
     return expect(flights({API_TOKEN: apiToken, options: {limit: 1, flight_date: '05-25-2020'}})).to.be.rejectedWith(Error);
   });
