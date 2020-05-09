@@ -13,6 +13,7 @@ Flight-data is an easy to implement flight tracking API for Node.js that uses da
 - Real-time flight data, including current latitude/longitude, heading, and elevation (only available on certain flights)
 - Full support for both IATA and ICAO codes
 #### Airports
+- **6400+ airports**
 - Airport lookup (multiple lookups at a time)
 - Lookup by airport-specific codes or by country/city
 - Returns exact latitude/longitude position, timezone, and even airport contact information (available on certain airports)
