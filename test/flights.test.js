@@ -33,7 +33,7 @@ describe('testing errors in parameters- flight lookup', () => {
 });
 describe('testing successful queries', () => {
   it('should return data of one flight without error', async () => {
-    const data = await flights({API_TOKEN: apiToken, options: {limit: 1, flight_number: '1290', arr_icao: 'KLAX'}});
+    const data = await flights({API_TOKEN: apiToken, options: {limit: 1, flight_number: '2275', arr_icao: 'KLAX'}});
     expect(data.count).to.be.equals(1);
     expect(data['data']).to.be.length(1);
   });
